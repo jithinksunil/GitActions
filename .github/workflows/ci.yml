@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # ✅ Force actions to run on Node 24
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4   # ✅ upgraded
+        uses: actions/checkout@v5   # ✅ Node 24 compatible
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4  # ✅ upgraded
+        uses: actions/setup-node@v6  # ✅ Node 24 native
         with:
-          node-version: 20           # you can change to 22 later
+          node-version: 22           # or 24
 
       - name: Install dependencies
         run: npm ci
