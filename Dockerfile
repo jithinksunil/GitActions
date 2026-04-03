@@ -18,6 +18,8 @@ FROM oven/bun:1-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
+
 EXPOSE 3000
 
 COPY --from=builder /app/public ./public
