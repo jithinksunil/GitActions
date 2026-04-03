@@ -32,3 +32,6 @@ jobs:
       # ✅ Build
       - name: Build project
         run: bun run build
+
+      - name: Build Docker image
+        run: docker build -t my-next-app .
