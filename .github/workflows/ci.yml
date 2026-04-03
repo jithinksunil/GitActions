@@ -15,18 +15,20 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5   # ✅ Node 24 compatible
+        uses: actions/checkout@v5
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v6  # ✅ Node 24 native
-        with:
-          node-version: 22           # or 24
+      # ✅ Install Bun
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
 
+      # ✅ Install deps using Bun
       - name: Install dependencies
-        run: npm ci
+        run: bun install
 
+      # ✅ Lint
       - name: Run lint
-        run: npm run lint
+        run: bun run lint
 
+      # ✅ Build
       - name: Build project
-        run: npm run build
+        run: bun run build
